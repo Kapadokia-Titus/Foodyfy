@@ -26,6 +26,7 @@ public class FoodDetails extends AppCompatActivity {
     private Button sub_btn;
     private int count = 1;
     private Food food;
+    private int new_price;
     private  List<CheckoutModel> checkoutModels;
     private  CheckoutAdapter checkoutAdapter;
     @Override
@@ -56,16 +57,22 @@ public class FoodDetails extends AppCompatActivity {
         sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
 
-                String quantity = String.valueOf(count);
-                Intent intent = new Intent(getApplicationContext(), Checkout.class);
-                intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, food.getFood_name());
-                intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, food.getImage());
-                intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, food.getPrice());
-                intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, quantity);
+                CheckoutModel model = new CheckoutModel();
+                model.setImage(food.getImage());
+                model.setName(food.getFood_name());
+                model.setPrice(String.valueOf(new_price));
+                model.setQuantity(String.valueOf(count));
 
-                startActivity(intent);
+                List<CheckoutModel>  checkoutModels = new ArrayList<>();
+                checkoutModels.add(model);
+                FoodCart.saveCart(checkoutModels);
+
+                if (FoodCart.getFoodCartSize()>0){
+                    Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(FoodDetails.this, "Error Making this order", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -79,7 +86,7 @@ public class FoodDetails extends AppCompatActivity {
         else {
             count --;
             int food_price  = Integer.parseInt(food.getPrice());
-            int new_price = food_price * count;
+             new_price = food_price * count;
 
 
             String price_count = String.valueOf(new_price);
@@ -95,7 +102,7 @@ public class FoodDetails extends AppCompatActivity {
 
         count++;
         int food_price = Integer.parseInt(food.getPrice());
-        int new_price = food_price * count;
+        new_price = food_price * count;
 
 
         String price_count = String.valueOf(new_price);
