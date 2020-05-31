@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/bodyColour"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:padding="@dimen/layoutMargin"
+        android:layout_margin="@dimen/layoutMargin"
+        android:id="@+id/food_detail_image"
+        tools:src="@drawable/biriani"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:id="@+id/food_detail_name"
+            android:textSize="22sp"
+            android:paddingLeft="@dimen/layoutMargin"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="Biriani"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Ksh. "/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:id="@+id/food_detail_price"
+            android:textSize="42sp"
+            android:paddingRight="5sp"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="310"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layoutMargin"
+        android:id="@+id/food_detail_description"
+        tools:text="Biriani is the best swahili food cooked with the best swahili cooks. You'll like it.Biriani is the best swahili food cooked with the best swahili cooks. You'll like it. "/>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layoutMargin"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="40sp"
+            android:background="@drawable/rectangle"
+            android:text="-"
+            android:onClick="subtractMethod"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_count"
+            android:text="1"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="40sp"
+            android:background="@drawable/rectangle"
+            android:text="+"
+            android:onClick="additionMethod"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        android:id="@+id/food_detail_checkout"
+        android:layout_margin="30dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Checkout"/>
+</LinearLayout>

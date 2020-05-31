@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".Checkout">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The Card's strip will be indicating the product status. Brown for paid, Green means that its being processed, Red means the order was cancelled. you can order again."
+        android:fontFamily="casual"
+        android:layout_marginBottom="@dimen/layoutMargin"/>
+
+
+    </LinearLayout>
