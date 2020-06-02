@@ -65,11 +65,10 @@
                         android:layout_height="match_parent"
                         android:id="@+id/food_checkout_quantity_provider"
                         android:textSize="18sp"
-                        android:padding="12dp"
+                        android:padding="8dp"
                         android:textStyle="italic"
-                        android:paddingLeft="@dimen/layoutMargin"
                         android:textColor="@color/colorPrimaryDark"
-                        android:text="mama Kimani "/>
+                        android:text="Mama Kimani "/>
                 </LinearLayout>
 
 

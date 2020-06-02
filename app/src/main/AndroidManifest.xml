@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/food_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Checkout"></activity>
+        <activity android:name=".ConfirmationPopup"></activity>
+        <activity android:name=".Checkout" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

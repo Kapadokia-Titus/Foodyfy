@@ -67,8 +67,11 @@ public class FoodDetails extends AppCompatActivity {
 
                 Intent intent  =  new Intent(FoodDetails.this, Checkout.class);
                 intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, model);
+
+                ConfirmationPopup popup =new ConfirmationPopup();
+                popup.showPopupWindow(v);
                 startActivity(intent);
-                    Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
 
             }
         });
