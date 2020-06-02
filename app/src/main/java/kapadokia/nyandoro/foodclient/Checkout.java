@@ -28,20 +28,20 @@ public class Checkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
-//
-//        model = getIntent().getParcelableExtra(EXTRA_CHECKOUT_DETAILS);
-//
-//
-//        image = findViewById(R.id.checkout_image_main);
-//        name = findViewById(R.id.food_checkout_name_main);
-//        price = findViewById(R.id.food_checkout_price_main);
-//        quantity = findViewById(R.id.food_checkout_quantity_main);
+
+        model = getIntent().getParcelableExtra(EXTRA_CHECKOUT_DETAILS);
 
 
-//        image.setImageResource(model.getImage());
-//        name.setText(model.getName());
-//        price.setText(model.getPrice());
-//        quantity.setText(model.getQuantity());
+        image = findViewById(R.id.checkout_image_main);
+        name = findViewById(R.id.food_checkout_name_main);
+        price = findViewById(R.id.food_checkout_price_main);
+        quantity = findViewById(R.id.food_checkout_quantity_main);
+
+
+        image.setImageResource(model.getImage());
+        name.setText(model.getName());
+        price.setText(model.getPrice());
+        quantity.setText(model.getQuantity());
 
 
 

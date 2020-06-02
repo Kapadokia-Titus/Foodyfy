@@ -44,6 +44,7 @@ public class FoodDetails extends AppCompatActivity {
         sub_btn = findViewById(R.id.food_detail_checkout);
         number_count = findViewById(R.id.number_count);
 
+        new_price = Integer.parseInt(food.getPrice());
 
         imageView.setImageResource(food.getImage());
         name_tv.setText(food.getFood_name());
@@ -58,6 +59,11 @@ public class FoodDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (new_price<=0){
+
+                    Toast.makeText(FoodDetails.this, "null" +new_price, Toast.LENGTH_SHORT).show();
+                    return;
+            }
                 CheckoutModel model = new CheckoutModel();
                 model.setImage(food.getImage());
                 model.setName(food.getFood_name());
@@ -68,8 +74,8 @@ public class FoodDetails extends AppCompatActivity {
                 Intent intent  =  new Intent(FoodDetails.this, Checkout.class);
                 intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, model);
 
-                ConfirmationPopup popup =new ConfirmationPopup();
-                popup.showPopupWindow(v);
+//                ConfirmationPopup popup =new ConfirmationPopup();
+////                popup.showPopupWindow(v);
                 startActivity(intent);
                 Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
 
