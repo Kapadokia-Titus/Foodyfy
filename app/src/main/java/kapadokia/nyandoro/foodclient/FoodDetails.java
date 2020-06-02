@@ -64,15 +64,12 @@ public class FoodDetails extends AppCompatActivity {
                 model.setPrice(String.valueOf(new_price));
                 model.setQuantity(String.valueOf(count));
 
-                List<CheckoutModel>  checkoutModels = new ArrayList<>();
-                checkoutModels.add(model);
-                FoodCart.saveCart(checkoutModels);
 
-                if (FoodCart.getFoodCartSize()>0){
+                Intent intent  =  new Intent(FoodDetails.this, Checkout.class);
+                intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, model);
+                startActivity(intent);
                     Toast.makeText(FoodDetails.this, "order for " +food.getFood_name() + " has been placed", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(FoodDetails.this, "Error Making this order", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
     }

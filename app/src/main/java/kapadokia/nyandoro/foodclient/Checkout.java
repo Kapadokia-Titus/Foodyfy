@@ -22,19 +22,27 @@ public class Checkout extends AppCompatActivity {
 
     private ImageView image;
     private TextView name, price ,quantity;
+    private CheckoutModel model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
 
-        checkoutModel = new ArrayList<>();
-        adapter = new CheckoutAdapter(getApplicationContext(), checkoutModel);
+        model = getIntent().getParcelableExtra(EXTRA_CHECKOUT_DETAILS);
 
-        recyclerView = findViewById(R.id.checkout_recycler);
-        LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(manager);
+
+        image = findViewById(R.id.checkout_image_main);
+        name = findViewById(R.id.food_checkout_name_main);
+        price = findViewById(R.id.food_checkout_price_main);
+        quantity = findViewById(R.id.food_checkout_quantity_main);
+
+
+        image.setImageResource(model.getImage());
+        name.setText(model.getName());
+        price.setText(model.getPrice());
+        quantity.setText(model.getQuantity());
+
 
 
 

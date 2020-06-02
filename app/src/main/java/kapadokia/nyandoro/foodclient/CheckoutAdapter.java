@@ -20,6 +20,9 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
     private OnItemClickListener listener;
 
 
+    public static final String EXTRA_CHECKOUT_DETAILS ="package kapadokia.nyandoro.foodclient.EXTRA_CHECKOUT_DETAILS";
+
+
 
 
     class CheckoutViewHolder extends RecyclerView.ViewHolder {
