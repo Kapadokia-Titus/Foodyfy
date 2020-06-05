@@ -5,5 +5,8 @@
     <color name="colorAccent">#ffff6b</color>
     <color name="bodyColour">#fffde7</color>
     <color name="whiteBackground">#ffffff</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F80321</color>
     <color name="textColour">#f9a825</color>
+    <color name="delivered">#c6a700</color>
 </resources>

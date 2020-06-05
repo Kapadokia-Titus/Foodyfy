@@ -27,8 +27,9 @@ public class FoodDetails extends AppCompatActivity {
     private int count = 1;
     private Food food;
     private int new_price;
-    private  List<CheckoutModel> checkoutModels;
-    private  CheckoutAdapter checkoutAdapter;
+    private String quantity;
+    private CheckoutModel model;
+    private List<CheckoutModel> modelList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +51,14 @@ public class FoodDetails extends AppCompatActivity {
         name_tv.setText(food.getFood_name());
         price_tv.setText(food.getPrice());
 
-        checkoutModels = new ArrayList<>();
-        checkoutAdapter = new CheckoutAdapter(this, checkoutModels);
-        String quantity = String.valueOf(count);
-        checkoutModels.add(new CheckoutModel(food.getImage(), food.getFood_name(), food.getPrice(), quantity));
+
+
+
+
+
+
+
+
 
         sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,16 +69,12 @@ public class FoodDetails extends AppCompatActivity {
                     Toast.makeText(FoodDetails.this, "null" +new_price, Toast.LENGTH_SHORT).show();
                     return;
             }
-                CheckoutModel model = new CheckoutModel();
-                model.setImage(food.getImage());
-                model.setName(food.getFood_name());
-                model.setPrice(String.valueOf(new_price));
-                model.setQuantity(String.valueOf(count));
 
 
+                //call the checkout model
+                sendToCheckout();
                 Intent intent  =  new Intent(FoodDetails.this, Checkout.class);
                 intent.putExtra(Checkout.EXTRA_CHECKOUT_DETAILS, model);
-
 //                ConfirmationPopup popup =new ConfirmationPopup();
 ////                popup.showPopupWindow(v);
                 startActivity(intent);
@@ -117,4 +118,32 @@ public class FoodDetails extends AppCompatActivity {
         number_count.setText(string_count);
         price_tv.setText(price_count);
     }
+
+
+    public void sendToCheckout(){
+
+        //pick the above information
+        // put it to a list
+        //send to checkoutModel class
+
+        //values to be sent
+        // image, food name, food price, food quantity
+        //resp data types, int , string(3)
+
+       String price = String.valueOf(new_price);
+        quantity = String.valueOf(count);
+        String status = String.valueOf(R.string.red);
+        model =  new CheckoutModel();
+        model.setImage(food.getImage());
+        model.setName(food.getFood_name());
+        model.setPrice(price);
+        model.setQuantity(quantity);
+        model.setStatus(status);
+
+        modelList = new ArrayList<>();
+        modelList.add(model);
+
+
+    }
+
 }

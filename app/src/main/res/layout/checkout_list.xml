@@ -14,15 +14,16 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="150dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
             <View
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
+                android:id="@+id/status_strip"
                 android:background="@color/colorPrimaryDark"/>
             <ImageView
                 android:layout_width="120dp"
@@ -43,23 +44,85 @@
                     android:paddingLeft="@dimen/layoutMargin"
                     android:textColor="@color/colorPrimaryDark"
                     tools:text="Biriani"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/person"
+                        android:id="@+id/food_checkout_icon"
+                        android:layout_margin="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/food_checkout_quantity_provider"
+                        android:textSize="18sp"
+                        android:padding="8dp"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Mama Kimani "/>
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/food_checkout_price"
-                    android:textSize="18sp"
-                    android:paddingLeft="@dimen/layoutMargin"
-                    android:textColor="@color/colorPrimaryDark"
-                    tools:text="200"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                        android:id="@+id/food_checkout_quantity"
-                    android:textSize="18sp"
-                    android:paddingLeft="@dimen/layoutMargin"
-                    android:textColor="@color/colorPrimaryDark"
-                    tools:text="2"/>
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/layoutMargin"
+                            android:text="Quantity: "
+                            android:textColor="@color/colorPrimaryDark" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/food_checkout_quantity"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            tools:text="200"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_marginRight="@dimen/layoutMargin"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/corners">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/layoutMargin"
+                            android:text="Ksh."
+                            android:textColor="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/food_checkout_price"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            tools:text="2"/>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 

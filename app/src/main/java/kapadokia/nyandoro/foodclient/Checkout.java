@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,32 +17,35 @@ public class Checkout extends AppCompatActivity {
 
     public static final String EXTRA_CHECKOUT_DETAILS ="package kapadokia.nyandoro.foodclient.EXTRA_CHECKOUT_DETAILS";
 
-    private List<CheckoutModel> checkoutModel;
+
+    private  List<CheckoutModel> modelList;
     private RecyclerView recyclerView;
     private CheckoutAdapter adapter;
 
     private ImageView image;
     private TextView name, price ,quantity;
     private CheckoutModel model;
+    private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
 
-        model = getIntent().getParcelableExtra(EXTRA_CHECKOUT_DETAILS);
+
+       modelList = new ArrayList<>();
+       model = getIntent().getParcelableExtra(EXTRA_CHECKOUT_DETAILS);
+       view = findViewById(R.id.status_strip);
+       modelList.add(model);
 
 
-        image = findViewById(R.id.checkout_image_main);
-        name = findViewById(R.id.food_checkout_name_main);
-        price = findViewById(R.id.food_checkout_price_main);
-        quantity = findViewById(R.id.food_checkout_quantity_main);
+        adapter = new CheckoutAdapter(this,modelList);
+        recyclerView = findViewById(R.id.checkout_recycler);
 
-
-        image.setImageResource(model.getImage());
-        name.setText(model.getName());
-        price.setText(model.getPrice());
-        quantity.setText(model.getQuantity());
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(manager);
 
 
 

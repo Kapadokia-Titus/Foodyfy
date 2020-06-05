@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Foodyfy</string>
     <string name="foodyfy">FOODYFY</string>
+    <string name="pay_text">Pay Now</string>
+    <string name="confirm">Confirm</string>
+    <string name="quantity">Quantity</string>
+    <string name="currency">Ksh.</string>
+    <string name="red">Your order has been cancelled</string>
+    <string name="delivered">Your order has been successfully delivered, pay now</string>
+    <string name="green">Your order is being processed</string>
     <string name="slogan">More | Quality | Cheap</string>
 </resources>

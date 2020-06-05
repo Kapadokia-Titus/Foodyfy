@@ -18,7 +18,7 @@ import java.util.List;
 
 public class FoodAdapter extends RecyclerView.Adapter< FoodAdapter.FoodViewAdapter>  {
 
-   Context context;
+       Context context;
    List<Food> foodsList;
    private OnItemClickListener listener;
 
@@ -58,7 +58,7 @@ public class FoodAdapter extends RecyclerView.Adapter< FoodAdapter.FoodViewAdapt
     public FoodViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layout;
         layout = LayoutInflater.from(context).inflate(R.layout.food_list, parent, false);
-        return new FoodViewAdapter(layout);
+        return new FoodViewAdapter( layout);
     }
 
     @Override
