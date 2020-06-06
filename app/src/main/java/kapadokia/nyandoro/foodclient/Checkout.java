@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,13 @@ public class Checkout extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
 
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void setOnItemClickListener(int foodModel) {
+                Toast.makeText(Checkout.this, "clicked :)", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

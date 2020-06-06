@@ -25,21 +25,13 @@
        android:id="@+id/checkout_recycler"/>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/status_text"
-        tools:text="@string/green"
-        android:gravity="center"
-        android:visibility="gone"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimaryDark"/>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/corners"
-            android:visibility="gone"
-            android:textColor="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/whiteBackground"
+            android:layout_marginTop="@dimen/layoutMargin"
+            android:layout_gravity="center"
             android:id="@+id/pay_button"
             android:text="@string/pay_text"/>
 

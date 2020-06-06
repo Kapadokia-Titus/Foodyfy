@@ -102,5 +102,7 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
 
 
     }
-
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
+    }
 }

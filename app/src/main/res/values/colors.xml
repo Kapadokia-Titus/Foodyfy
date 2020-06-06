@@ -9,4 +9,6 @@
     <color name="red">#F80321</color>
     <color name="textColour">#f9a825</color>
     <color name="processing">#c6a700</color>
+    <color name="button_light_blue">#2196F3</color>
+    <color name="button_dark_blue">#2039C7</color>
 </resources>
