@@ -6,7 +6,7 @@
     <string name="quantity">Quantity</string>
     <string name="currency">Ksh.</string>
     <string name="red">Your order has been cancelled</string>
-    <string name="delivered">Your order has been successfully delivered, pay now</string>
-    <string name="green">Your order is being processed</string>
+    <string name="processing">Your order is being processed</string>
+    <string name="green">Payment done! thank you</string>
     <string name="slogan">More | Quality | Cheap</string>
 </resources>

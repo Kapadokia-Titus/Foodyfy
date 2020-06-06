@@ -9,12 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
-import static androidx.core.content.ContextCompat.getColor;
 
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.CheckoutViewHolder> {
 
@@ -23,8 +20,10 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
     List<CheckoutModel> checkoutList;
     private OnItemClickListener listener;
 
-
-    public static final String EXTRA_CHECKOUT_DETAILS ="package kapadokia.nyandoro.foodclient.EXTRA_CHECKOUT_DETAILS";
+    //colors
+    private int red = R.color.red;
+    private int green = R.color.green;
+    private int processing = R.color.processing;
 
 
 
@@ -80,7 +79,20 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
         holder.name.setText(checkoutList.get(position).getName());
         holder.price.setText(checkoutList.get(position).getPrice());
         holder.quantity.setText(checkoutList.get(position).getQuantity());
-        holder.status_strip.setBackgroundColor(checkoutList.get(position).getColour());
+
+        String status = checkoutList.get(position).getStatus();
+
+        //getting different colours
+        if (status == String.valueOf(R.string.red)){
+            holder.status_strip.setBackgroundResource(red);
+        }
+        if (status == String.valueOf(R.string.green)){
+            holder.status_strip.setBackgroundResource(green);
+        }
+        if (status == String.valueOf(R.string.processing)){
+            holder.status_strip.setBackgroundResource(processing);
+        }
+
     }
 
     @Override

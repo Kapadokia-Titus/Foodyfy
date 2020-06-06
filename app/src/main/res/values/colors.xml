@@ -8,5 +8,5 @@
     <color name="green">#4CAF50</color>
     <color name="red">#F80321</color>
     <color name="textColour">#f9a825</color>
-    <color name="delivered">#c6a700</color>
+    <color name="processing">#c6a700</color>
 </resources>

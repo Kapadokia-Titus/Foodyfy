@@ -96,21 +96,7 @@ public class CheckoutModel implements Parcelable {
     }
 
     public void setColour(int colour) {
-        if (status == String.valueOf(R.string.red)){
-            colour = R.color.red;
-            this.colour = colour;
-        }
-        if (status == String.valueOf(R.string.green)){
-            colour = R.color.green;
-            this.colour =colour;
-        }
-         if (status == String.valueOf(R.string.delivered)){
-            colour = R.color.delivered;
-            this.colour = colour;
-        }
-        else {
-            this.colour = colour;
-         }
+       this.colour=colour;
     }
 
     @Override
