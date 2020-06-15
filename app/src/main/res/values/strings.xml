@@ -10,4 +10,9 @@
     <string name="green">Payment done! thank you</string>
     <string name="slogan">More | Quality | Cheap</string>
     <string name="logout">Logout</string>
+    <string name="name_of_the_food">Name of the food</string>
+    <string name="upload_image">Upload image</string>
+    <string name="my_menu">My Menu</string>
+    <string name="create_new_food">Create New Food</string>
+    <string name="save">Save</string>
 </resources>
