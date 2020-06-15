@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/food_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme2">
-        <activity android:name=".CreateFood"></activity>
+        <activity android:name=".MyMenu"></activity>
+        <activity android:name=".CreateFood" />
         <activity
             android:name=".ConfirmationPopup"
             android:theme="@style/AppTheme" />

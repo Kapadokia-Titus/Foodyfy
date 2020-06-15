@@ -6,4 +6,5 @@
     <dimen name="margin">8dp</dimen>
     <dimen name="food_image_width">200dp</dimen>
     <dimen name="food_image_height">200dp</dimen>
+    <dimen name="default_icon_dime">30dp</dimen>
 </resources>

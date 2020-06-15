@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.create_food:
                 Intent intent =  new Intent(MainActivity.this, CreateFood.class);
                 startActivity(intent);
+
+            case R.id.my_menu:
+                Intent intent1 = new Intent(MainActivity.this, MyMenu.class);
+                startActivity(intent1);
         }
         return super.onOptionsItemSelected(item);
     }
