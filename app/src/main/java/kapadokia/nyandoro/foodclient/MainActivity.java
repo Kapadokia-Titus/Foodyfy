@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         // firebase inits
         firebaseAuth = FirebaseAuth.getInstance();
+
+        /**
+         *  using firebase auth to handle login information
+         */
 
         // use the listener to handle login
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -106,10 +112,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /**
-         *  using firebase auth to handle login information
-         */
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.food_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.logout_menu:
+                firebaseAuth.signOut();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onSignedInInitialised(String displayName) {

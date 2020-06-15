@@ -9,4 +9,5 @@
     <string name="processing">Your order is being processed</string>
     <string name="green">Payment done! thank you</string>
     <string name="slogan">More | Quality | Cheap</string>
+    <string name="logout">Logout</string>
 </resources>
