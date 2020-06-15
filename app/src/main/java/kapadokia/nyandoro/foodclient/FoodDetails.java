@@ -2,7 +2,6 @@ package kapadokia.nyandoro.foodclient;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kapadokia.nyandoro.foodclient.model.CheckoutModel;
+import kapadokia.nyandoro.foodclient.model.Food;
 
 public class FoodDetails extends AppCompatActivity {
 

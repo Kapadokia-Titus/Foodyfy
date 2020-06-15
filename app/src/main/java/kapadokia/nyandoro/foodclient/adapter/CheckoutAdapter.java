@@ -1,7 +1,6 @@
-package kapadokia.nyandoro.foodclient;
+package kapadokia.nyandoro.foodclient.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import kapadokia.nyandoro.foodclient.interfaces.OnItemClickListener;
+import kapadokia.nyandoro.foodclient.R;
+import kapadokia.nyandoro.foodclient.model.CheckoutModel;
 
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.CheckoutViewHolder> {
 

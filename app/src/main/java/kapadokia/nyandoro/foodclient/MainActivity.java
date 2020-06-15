@@ -1,21 +1,39 @@
 package kapadokia.nyandoro.foodclient;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.GridView;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import kapadokia.nyandoro.foodclient.adapter.FoodAdapter;
+import kapadokia.nyandoro.foodclient.interfaces.OnItemClickListener;
+import kapadokia.nyandoro.foodclient.model.Food;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView foodRecycler;
     private FoodAdapter foodAdapter;
     private List<Food> foods;
+    private String mUsername;
+    private static final int RC_SIGN_IN = 123;
+    public static final String ANONYMOUS = "anonymous";
+
+    //firebase declarations
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +42,49 @@ public class MainActivity extends AppCompatActivity {
         //recycler init
         foodRecycler =  findViewById(R.id.foodCategory);
 
+        // username init
+        mUsername = ANONYMOUS;
+
         //list init
         foods = new ArrayList<>();
 
+        // firebase inits
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        // use the listener to handle login
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if (user == null){
+
+                    onSignedOutCleanup();
+                    //perform login
+                    //user is signed out
+                    onSignedOutCleanup();
+                    // Choose authentication providers
+                    List<AuthUI.IdpConfig> providers = Arrays.asList(
+                            new AuthUI.IdpConfig.EmailBuilder().build(),
+                            new AuthUI.IdpConfig.PhoneBuilder().build(),
+                            new AuthUI.IdpConfig.GoogleBuilder().build());
+
+                    // Create and launch sign-in intent
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                                    .createSignInIntentBuilder()
+                                    .setIsSmartLockEnabled(false)
+                                    .setAvailableProviders(providers)
+                                    .build(),
+                            RC_SIGN_IN);
+                }else{
+                     onSignedInInitialised(user.getDisplayName());
+                    //the user is logged in
+                }
+
+            }
+        };
 
         //adapter init
         foodAdapter   = new FoodAdapter(this, foods);
@@ -48,9 +106,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        /**
+         *  using firebase auth to handle login information
+         */
+
     }
 
+    private void onSignedInInitialised(String displayName) {
 
+        mUsername = displayName;
+    }
+
+    private void onSignedOutCleanup(){
+        mUsername =ANONYMOUS;
+    }
     public void addFoodItem(){
 
         Food food = new Food(R.drawable.biriani, "Biriani & Kuku", "200");
@@ -66,5 +135,23 @@ public class MainActivity extends AppCompatActivity {
         food = new Food(R.drawable.nyama, "Sima & Nyama", "310");
         foods.add(food);
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        firebaseAuth.removeAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        firebaseAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        firebaseAuth.removeAuthStateListener(authStateListener);
     }
 }

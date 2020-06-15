@@ -1,20 +1,22 @@
-package kapadokia.nyandoro.foodclient;
+package kapadokia.nyandoro.foodclient.adapter;
 
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import kapadokia.nyandoro.foodclient.interfaces.OnItemClickListener;
+import kapadokia.nyandoro.foodclient.R;
+import kapadokia.nyandoro.foodclient.model.Food;
 
 public class FoodAdapter extends RecyclerView.Adapter< FoodAdapter.FoodViewAdapter>  {
 

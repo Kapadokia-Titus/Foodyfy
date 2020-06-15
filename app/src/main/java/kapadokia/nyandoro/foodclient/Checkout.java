@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +12,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kapadokia.nyandoro.foodclient.adapter.CheckoutAdapter;
+import kapadokia.nyandoro.foodclient.interfaces.OnItemClickListener;
+import kapadokia.nyandoro.foodclient.model.CheckoutModel;
 
 public class Checkout extends AppCompatActivity {
 

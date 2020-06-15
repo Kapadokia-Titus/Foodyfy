@@ -1,4 +1,4 @@
-package kapadokia.nyandoro.foodclient;
+package kapadokia.nyandoro.foodclient.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
