@@ -8,20 +8,18 @@
     android:background="@color/bodyColour"
     tools:context=".CreateFood">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name_of_the_food"
+                android:layout_marginTop="@dimen/large_margin_top"
                 android:textColor="@color/colorPrimaryDark"
                 android:inputType="text"
                 android:maxLines="1"
@@ -79,11 +77,11 @@
                 android:layout_marginTop="@dimen/margin"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_gravity="center"
+                android:id="@+id/created_food_image"
                 tools:src="@drawable/nyama"/>
 
 
 
         </LinearLayout>
 
-    </ScrollView>
 </LinearLayout>

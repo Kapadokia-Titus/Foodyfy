@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.logout_menu:
-                firebaseAuth.signOut();
+                AuthUI.getInstance().signOut(this);
             case R.id.create_food:
                 Intent intent =  new Intent(MainActivity.this, CreateFood.class);
                 startActivity(intent);
