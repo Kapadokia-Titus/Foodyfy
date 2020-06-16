@@ -128,13 +128,16 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout_menu:
                 AuthUI.getInstance().signOut(this);
+                break;
             case R.id.create_food:
                 Intent intent =  new Intent(MainActivity.this, CreateFood.class);
                 startActivity(intent);
+                break;
 
             case R.id.my_menu:
                 Intent intent1 = new Intent(MainActivity.this, MyMenu.class);
                 startActivity(intent1);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

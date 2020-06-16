@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kapadokia.nyandoro.foodclient">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,7 +10,7 @@
         android:roundIcon="@drawable/food_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme2">
-        <activity android:name=".MyMenu"></activity>
+        <activity android:name=".MyMenu" />
         <activity android:name=".CreateFood" />
         <activity
             android:name=".ConfirmationPopup"

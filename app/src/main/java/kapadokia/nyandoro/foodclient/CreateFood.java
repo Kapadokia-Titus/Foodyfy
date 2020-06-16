@@ -27,6 +27,10 @@ public class CreateFood extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private CreatedFood createFood;
 
+    private String mName;
+    private String mPrice;
+    private String mQuantity;
+    private  String mDescription;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,11 @@ public class CreateFood extends AppCompatActivity {
         description = findViewById(R.id.created_food_description);
         imageView = findViewById(R.id.created_food_image);
         upload_image_btn = findViewById(R.id.upload_image_btn);
+
+         mName = name.getText().toString();
+         mPrice = price.getText().toString();
+         mQuantity = quantity.getText().toString();
+         mDescription = description.getText().toString();
 
 
         //creating a model objects so that we can pass the values
@@ -62,7 +71,6 @@ public class CreateFood extends AppCompatActivity {
 
         // firebase inits
         firebaseDatabase = FirebaseDatabase.getInstance();
-//        databaseReference = firebaseDatabase.getReference().child("foods");
 
     }
 
@@ -78,10 +86,14 @@ public class CreateFood extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.save_food_item:
-                //ProgressDialog dialog = new ProgressDialog(this);
-                //dialog.setMessage("saving....");
-                saveFood();
-                backToMenu();
+
+
+                    ProgressDialog dialog = new ProgressDialog(this);
+                    dialog.setMessage("saving....");
+                    saveFood();
+                  //  backToMenu();
+
+
 
 
 
@@ -94,18 +106,25 @@ public class CreateFood extends AppCompatActivity {
     public void saveFood(){
 
         // step 1. read the edit text and convert them to string
-        createFood.setCreatedName(name.getText().toString());
-        createFood.setCreatedPrice(name.getText().toString());
-        createFood.setCreatedQuantity(name.getText().toString());
-        createFood.setCreatedDescription(name.getText().toString());
 
-        if (createFood.getId()==null){
 
-            databaseReference.push().setValue(createFood);
-        }else {
-            databaseReference.child(createFood.getId()).setValue(createFood);
-        }
+            databaseReference = firebaseDatabase.getReference().child("foods");
+            createFood.setCreatedName(mName);
+            createFood.setCreatedPrice(mPrice);
+            createFood.setCreatedQuantity(mQuantity);
+            createFood.setCreatedDescription(mDescription);
+
+            if (createFood.getId()==null){
+
+                databaseReference.push().setValue(createFood);
+            }else {
+                databaseReference.child(createFood.getId()).setValue(createFood);
+            }
+
+
+
     }
+
 
 
 
