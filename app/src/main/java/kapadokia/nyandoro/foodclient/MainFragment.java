@@ -7,11 +7,17 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import kapadokia.nyandoro.foodclient.adapter.ProductsAdapter;
 import kapadokia.nyandoro.foodclient.databinding.FragmentMainBinding;
+import kapadokia.nyandoro.foodclient.model.Product;
+import kapadokia.nyandoro.foodclient.utils.Products;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -31,10 +37,22 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void setUpProductList() {
+        Products products = new Products();
+        List<Product> productList =new ArrayList<>();
+        productList.addAll(Arrays.asList(products.PRODUCTS));
+        mBinding.setProducts(productList);
     }
 
     @Override
     public void onRefresh() {
+
+        //facilitating refresh
+        Products products = new Products();
+        List<Product> productList =new ArrayList<>();
+        productList.addAll(Arrays.asList(products.PRODUCTS));
+        ((ProductsAdapter)mBinding.foodRecyclerView.getAdapter()).refreshList(productList);
+        onItemsLoadComplete();
+
 
     }
 

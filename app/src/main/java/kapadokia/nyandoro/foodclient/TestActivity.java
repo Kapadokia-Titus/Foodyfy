@@ -2,6 +2,7 @@ package kapadokia.nyandoro.foodclient;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,6 +28,11 @@ public class TestActivity extends AppCompatActivity implements MainController {
     }
 
     private void init() {
+
+        MainFragment mainFragment = new MainFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, mainFragment, getString(R.string.fragment_main));
+        transaction.commit();
     }
 
     @Override
