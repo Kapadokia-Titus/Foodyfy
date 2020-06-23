@@ -2,6 +2,7 @@ package kapadokia.nyandoro.foodclient.interfaces;
 
 import kapadokia.nyandoro.foodclient.model.CartItem;
 import kapadokia.nyandoro.foodclient.model.Food;
+import kapadokia.nyandoro.foodclient.model.Product;
 
 public interface MainController {
 
@@ -17,7 +18,7 @@ public interface MainController {
 
     void setCartVisibility(boolean visibility);
 
-    void updateQuantity(Food food, int quantity);
+    void updateQuantity(Product food, int quantity);
 
     void removeCartItem(CartItem cartItem);
 }

@@ -2,22 +2,24 @@ package kapadokia.nyandoro.foodclient.model;
 
 public class CartItem {
 
-    private Food food;
-    private  int quantity;
+    private Product product;
+    private int quantity;
 
-    public CartItem(){}
-
-    public CartItem(Food food, int quantity) {
-        this.food = food;
+    public CartItem(Product product, int quantity) {
+        this.product = product;
         this.quantity = quantity;
     }
 
-    public Food getFood() {
-        return food;
+    public CartItem() {
+
     }
 
-    public void setFood(Food food) {
-        this.food = food;
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
