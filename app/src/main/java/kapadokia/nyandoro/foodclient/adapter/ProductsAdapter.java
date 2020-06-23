@@ -14,6 +14,7 @@ import java.util.List;
 
 import kapadokia.nyandoro.foodclient.R;
 import kapadokia.nyandoro.foodclient.databinding.ProductItemBinding;
+import kapadokia.nyandoro.foodclient.interfaces.MainController;
 import kapadokia.nyandoro.foodclient.model.Product;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.BindingHolder> {
@@ -22,6 +23,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
 
     private List<Product> mProducts = new ArrayList<>();
     private Context context ;
+
 
     public class BindingHolder extends RecyclerView.ViewHolder{
 
@@ -58,16 +60,20 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Bindin
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductsAdapter.BindingHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductsAdapter.BindingHolder holder, final int position) {
 
         Product product= mProducts.get(position);
         holder.binding.setProduct(product);
+        holder.binding.setIMainController((MainController)context);
 
+        holder.binding.executePendingBindings();
     }
 
     @Override
     public int getItemCount() {
         return mProducts.size();
     }
+
+
 
 }

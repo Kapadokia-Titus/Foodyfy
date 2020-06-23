@@ -1,5 +1,6 @@
 package kapadokia.nyandoro.foodclient.databinding;
 
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ public class ViewCartFragmentBindingAdapters {
 
     private static final String TAG = "ViewCartFragmentBinding";
 
+    @BindingAdapter("cartItems")
     public static void setCartItems(RecyclerView view, List<CartItem> cartItems){
 
         if (cartItems == null){
